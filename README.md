@@ -10,7 +10,6 @@
 ![Offline First](https://img.shields.io/badge/OFFLINE-FIRST-222222?style=for-the-badge)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-D6B16D?style=for-the-badge&logo=javascript&logoColor=black)
 ![Python](https://img.shields.io/badge/Python-3.x-327FB5?style=for-the-badge&logo=python&logoColor=white)
-![Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-B9231B?style=for-the-badge)
 <br>
 </div>
 
