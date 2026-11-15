@@ -1,6 +1,6 @@
 # CHC · Cabin Health Companion
 
-**CHC** is a health companion for astronauts on a 30-day transit to Mars. It brings everything about one crew member's health together on one screen:
+**CHC** is a health companion for astronauts for deep space missions. It brings everything about one crew member's health together on one screen:
 
 - **Continuous data**: a Bio-Monitor shirt (heart rate and ECG, blood oxygen, blood pressure, breathing, skin temperature, activity) and the cabin radiation monitor.
 - **Scheduled checks**: daily check-ins, a finger-prick test every 3 days, a blood draw every 2 weeks, and urine tests.
