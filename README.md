@@ -163,7 +163,7 @@ Loaded with plain `<script>` tags in this order, all under `window.Halo`:
 - **Header**: crew member menu with **i** profiles, "Mars transit · Day N of 30", Wellbeing, Reaction test, Limits, Simulate, Data.
 - **Summary + body figure + AI summary**: what's off, where, and what to do.
 - **Bio-Monitor**: live sensor values (median of the last few minutes); exercise is detected and judged against exercise limits.
-- **Radiation**: dose rate now, last 24 hours, and total since launch against NASA's career limit (in gray). Sample data is real Curiosity data.
+- **Radiation**: dose rate now, last 24 hours, and total since launch against NASA's career limit. Sample data is real Curiosity data.
 - **Trends**: all sensors on one time axis (day, week, 2 weeks, month).
 - **Checks**: what's due, and cards for daily, weekly, blood (finger-prick every 3 days, blood draw every 2 weeks) and urine tests, plus the kidney stone risk.
 - **Detail panel** (click anything): what to do, when to get the Crew Medical Officer, a chart, **why it matters**, **how it is measured**, **Log a measurement**, and follow-up tests.
