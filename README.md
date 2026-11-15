@@ -1,7 +1,7 @@
 
 <div align="center">
 
-<img src="CHC-Cabin-Health-Companion/img/chc-github-banner.png" width="100%" alt="CHC — Cabin Health Companion"/>
+<img src="CHC-Cabin-Health-Companion/img/BANNER.png" width="100%" alt="CHC — Cabin Health Companion"/>
 
 <br>
 
