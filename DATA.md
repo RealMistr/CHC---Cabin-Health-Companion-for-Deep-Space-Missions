@@ -16,7 +16,7 @@ A full working example is in `data/sample-mission.json`. A minimal one is in `da
     "role": "Pilot",
     "mission": "Mars transit",
     "mission_start": "2026-10-16",
-    "age": 41,
+    "age": 40,
     "baseline": { "body_mass": 74.2, "reaction_time": 280 }
   },
   "series": [
