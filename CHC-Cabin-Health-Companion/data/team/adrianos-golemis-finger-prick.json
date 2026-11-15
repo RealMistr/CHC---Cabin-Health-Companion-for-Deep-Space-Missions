@@ -1,0 +1,163 @@
+{
+  "format": "chc/1",
+  "crew": {
+    "name": "Adrianos Golemis",
+    "role": "Mission specialist",
+    "mission_start": "2026-10-17",
+    "age": 39
+  },
+  "note": "Finger-prick every 3 days (mission days 1 to 28), from the team's data, fitted to this astronaut. Not real medical data.",
+  "series": [],
+  "readings": [
+    {
+      "metric": "glucose",
+      "time": "2026-10-17T08:00:00.000Z",
+      "value": 82.2
+    },
+    {
+      "metric": "hemoglobin",
+      "time": "2026-10-17T08:01:00.000Z",
+      "value": 15.52
+    },
+    {
+      "metric": "lactate",
+      "time": "2026-10-17T08:02:00.000Z",
+      "value": 1.537
+    },
+    {
+      "metric": "glucose",
+      "time": "2026-10-20T08:00:00.000Z",
+      "value": 87.4
+    },
+    {
+      "metric": "hemoglobin",
+      "time": "2026-10-20T08:01:00.000Z",
+      "value": 14.99
+    },
+    {
+      "metric": "lactate",
+      "time": "2026-10-20T08:02:00.000Z",
+      "value": 1.611
+    },
+    {
+      "metric": "glucose",
+      "time": "2026-10-23T08:00:00.000Z",
+      "value": 79.9
+    },
+    {
+      "metric": "hemoglobin",
+      "time": "2026-10-23T08:01:00.000Z",
+      "value": 15.59
+    },
+    {
+      "metric": "lactate",
+      "time": "2026-10-23T08:02:00.000Z",
+      "value": 1.421
+    },
+    {
+      "metric": "glucose",
+      "time": "2026-10-26T08:00:00.000Z",
+      "value": 90.7
+    },
+    {
+      "metric": "hemoglobin",
+      "time": "2026-10-26T08:01:00.000Z",
+      "value": 16.28
+    },
+    {
+      "metric": "lactate",
+      "time": "2026-10-26T08:02:00.000Z",
+      "value": 1.804
+    },
+    {
+      "metric": "glucose",
+      "time": "2026-10-29T08:00:00.000Z",
+      "value": 79.7
+    },
+    {
+      "metric": "hemoglobin",
+      "time": "2026-10-29T08:01:00.000Z",
+      "value": 14.41
+    },
+    {
+      "metric": "lactate",
+      "time": "2026-10-29T08:02:00.000Z",
+      "value": 2.141
+    },
+    {
+      "metric": "glucose",
+      "time": "2026-11-01T08:00:00.000Z",
+      "value": 78.7
+    },
+    {
+      "metric": "hemoglobin",
+      "time": "2026-11-01T08:01:00.000Z",
+      "value": 16.2
+    },
+    {
+      "metric": "lactate",
+      "time": "2026-11-01T08:02:00.000Z",
+      "value": 1.566
+    },
+    {
+      "metric": "glucose",
+      "time": "2026-11-04T08:00:00.000Z",
+      "value": 75.8
+    },
+    {
+      "metric": "hemoglobin",
+      "time": "2026-11-04T08:01:00.000Z",
+      "value": 16.02
+    },
+    {
+      "metric": "lactate",
+      "time": "2026-11-04T08:02:00.000Z",
+      "value": 1.543
+    },
+    {
+      "metric": "glucose",
+      "time": "2026-11-07T08:00:00.000Z",
+      "value": 88.9
+    },
+    {
+      "metric": "hemoglobin",
+      "time": "2026-11-07T08:01:00.000Z",
+      "value": 15.43
+    },
+    {
+      "metric": "lactate",
+      "time": "2026-11-07T08:02:00.000Z",
+      "value": 1.295
+    },
+    {
+      "metric": "glucose",
+      "time": "2026-11-10T08:00:00.000Z",
+      "value": 79.9
+    },
+    {
+      "metric": "hemoglobin",
+      "time": "2026-11-10T08:01:00.000Z",
+      "value": 15.23
+    },
+    {
+      "metric": "lactate",
+      "time": "2026-11-10T08:02:00.000Z",
+      "value": 1.369
+    },
+    {
+      "metric": "glucose",
+      "time": "2026-11-13T08:00:00.000Z",
+      "value": 77.4
+    },
+    {
+      "metric": "hemoglobin",
+      "time": "2026-11-13T08:01:00.000Z",
+      "value": 15.45
+    },
+    {
+      "metric": "lactate",
+      "time": "2026-11-13T08:02:00.000Z",
+      "value": 1.115
+    }
+  ]
+}

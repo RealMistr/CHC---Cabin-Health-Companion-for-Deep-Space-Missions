@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHC · Cabin Health Companion</title>
+<meta name="theme-color" content="#f4f1ea">
+<link rel="icon" href="img/chc-logo.svg" type="image/svg+xml">
+<link rel="icon" href="img/icon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="brand"><img class="brand-logo" src="img/logo.png" alt="" width="36" height="36"><span class="brand-name">CHC</span><span class="brand-long">Cabin Health Companion</span></div>
+  <div class="who" id="who"></div>
+  <div class="mast-right">
+    <span class="datastate" id="datastate"></span>
+    <nav class="mastnav" aria-label="Pages"><a href="#wellbeing">Wellbeing</a><a href="#reaction-test">Reaction test</a><a href="#limits">Limits</a><button type="button" class="navbtn" data-sim-open>Simulate</button></nav>
+    <button type="button" class="btn ghost" id="b-data">Data</button>
+  </div>
+</header>
+
+<div class="simbar" id="simbar" role="status" hidden></div>
+
+<main class="page" id="main">
+
+  <section class="intro">
+    <div class="intro-text">
+      <p class="today" id="today"></p>
+      <h1 id="summary">Loading…</h1>
+      <ul class="attention" id="attention"></ul>
+      <button type="button" class="btn ghost small reportbtn" id="b-report">Health report for the Crew Medical Officer</button>
+    </div>
+    <div class="figure">
+      <svg id="body" role="group" aria-label="Body systems. Select one to see its indicators."></svg>
+      <div class="region" id="region"></div>
+      <div class="env" id="env"></div>
+    </div>
+    <section class="aicard" id="aicard" aria-live="polite" aria-label="AI summary"></section>
+  </section>
+
+  <section class="block" aria-labelledby="h-live">
+    <div class="block-head">
+      <h2 id="h-live">Bio-Monitor</h2>
+      <p>All values in this section are measured by the Bio-Monitor, a sensor shirt and headband the astronaut wears all the time. Each value is the median of the last few minutes. Select one for details.</p>
+    </div>
+    <div class="live" id="live"></div>
+    <p class="note" id="ecgnote"></p>
+  </section>
+
+  <section class="block" id="radiation" aria-labelledby="h-rad" hidden>
+    <div class="block-head">
+      <h2 id="h-rad">Radiation</h2>
+      <p>The active dose rate right now, and the dose added up since launch. This section has its own time scale and is not affected by the time range below.</p>
+    </div>
+    <div class="rad-body"></div>
+  </section>
+
+  <div class="rangebar" id="rangebar">
+    <div class="seg" id="rangeseg" role="radiogroup" aria-label="Time range"></div>
+    <div class="nav">
+      <button type="button" class="icon" id="prev" aria-label="Earlier">‹</button>
+      <span id="rangelabel"></span>
+      <button type="button" class="icon" id="next" aria-label="Later">›</button>
+      <button type="button" class="btn ghost small" id="latest" hidden>Back to latest</button>
+    </div>
+  </div>
+
+  <section class="block" aria-labelledby="h-trends">
+    <div class="block-head">
+      <h2 id="h-trends">Trends</h2>
+      <p>Line: average. Shaded band: lowest to highest. Green band: normal range. Blue columns: exercise, when heart rate and breathing are not judged. Hover a chart to read all of them at one moment.</p>
+    </div>
+    <div class="trends" id="trends"></div>
+  </section>
+
+  <section class="block" id="checks" aria-labelledby="h-checks">
+    <div class="block-head">
+      <h2 id="h-checks">Checks</h2>
+      <p>Measurements you take yourself, and lab results from blood and urine samples. The time range above applies here too.</p>
+    </div>
+    <div class="routine" id="routine"></div>
+    <div id="periodic"></div>
+  </section>
+
+</main>
+
+<section class="rtest" id="rtest" hidden aria-labelledby="rt-title">
+  <div class="rt-top"><a href="#" class="back">← Back to the dashboard</a></div>
+  <div class="rt-body" id="rtbody"></div>
+</section>
+
+<section class="rtest wellbeing" id="wellbeing" hidden aria-label="Wellbeing">
+  <div class="rt-top"><a href="#" class="back">← Back to the dashboard</a></div>
+  <div class="rt-body" id="wbbody"></div>
+</section>
+
+<section class="rtest limits" id="limits" hidden>
+  <div class="rt-top"><a href="#" class="back">← Back to the dashboard</a></div>
+  <div class="rt-body" id="limbody"></div>
+</section>
+
+<footer class="foot">
+  <p>Prototype built for a hackathon. The normal ranges are general adult reference values and assumptions, not NASA flight limits, and nothing here is a diagnosis. Act now steps are written for the crew to carry out on board; the Crew Medical Officer, the crewmate trained for medical care, decides on treatment. Personal limits should be agreed with the medical team before the mission. All times are UTC, the mission's time.</p>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" hidden aria-labelledby="dtitle" role="dialog">
+  <div class="dhead"><h2 id="dtitle"></h2><button type="button" class="icon close" aria-label="Close">×</button></div>
+  <div class="dbody" id="dbody"></div>
+</aside>
+
+<dialog class="crewdlg" id="crewdlg" aria-labelledby="crewdlg-h">
+  <div class="dlg-head"><h2 id="crewdlg-h">Crew member</h2><button type="button" class="icon" id="crewdlg-close" aria-label="Close">×</button></div>
+  <div id="crewdlg-body"></div>
+</dialog>
+
+<dialog id="simdlg" class="simdlg" aria-labelledby="simtitle">
+  <div class="dlg-head"><h2 id="simtitle">Simulate a situation</h2><button type="button" class="icon" id="simclose" aria-label="Close">×</button></div>
+  <div id="simbody"></div>
+</dialog>
+
+<dialog id="datadlg" aria-labelledby="dlgtitle">
+  <div class="dlg-head"><h2 id="dlgtitle">Data</h2><button type="button" class="icon" id="dclose" aria-label="Close">×</button></div>
+  <p>Load JSON files from the team. You can load several at once (for example one with Bio-Monitor data and one with checks); they are merged. The first upload replaces the sample data. Everything stays in this browser.</p>
+  <p class="muted small">Each crew member's data is kept apart by the name in the file ("crew": {"name": "Aleš Svoboda"}); files without a name go to the crew member on screen. Old dates are moved forward so the data ends today, and only the last 30 days are kept. Radiation is shown in gray (µGy/h, mGy). Older files in sievert (µSv/h, mSv) are converted to gray.</p>
+  <label class="drop" id="drop">
+    <input type="file" id="file" accept=".json,application/json" multiple>
+    <span><strong>Drop JSON files here</strong> or click to choose</span>
+  </label>
+  <details>
+    <summary>Paste JSON instead</summary>
+    <textarea id="paste" spellcheck="false" aria-label="JSON text"></textarea>
+    <button type="button" class="btn ghost small" id="b-paste">Import pasted JSON</button>
+  </details>
+  <div id="report" aria-live="polite"></div>
+  <p class="muted small" id="dstats"></p>
+  <div class="dlg-actions">
+    <button type="button" class="btn ghost" id="b-export">Export all data</button>
+    <button type="button" class="btn ghost" id="b-sample">Download sample file</button>
+    <button type="button" class="btn ghost danger" id="b-reset">Remove loaded data</button>
+  </div>
+  <p class="muted small">File format: see <code>DATA.md</code> in the project folder.</p>
+</dialog>
+
+<dialog id="reportdlg" aria-labelledby="reptitle">
+  <div class="dlg-head"><h2 id="reptitle">Health report</h2><button type="button" class="icon" id="repclose" aria-label="Close">×</button></div>
+  <p>Everything that is out of range right now, with the latest values, what has been checked since, and what is still due. Hand it to the Crew Medical Officer, or save it to send home with the next downlink.</p>
+  <textarea id="reptext" readonly spellcheck="false" aria-label="Report text"></textarea>
+  <div class="dlg-actions"><button type="button" class="btn" id="repcopy">Copy</button><button type="button" class="btn ghost" id="repsave">Save as text file</button><span class="msg good" id="repmsg" role="status"></span></div>
+</dialog>
+
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/derived.js"></script>
+<script src="js/status.js"></script>
+<script src="js/curiosity-rad.js"></script>
+<script src="js/sample.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/body.js"></script>
+<script src="js/reaction.js"></script>
+<script src="js/diagnose.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/wellbeing.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "format": "chc/1",
+  "crew": { "name": "Aleš Svoboda", "role": "Pilot", "mission_start": "2026-08-01" },
+  "series": [
+    { "metric": "heart_rate", "start": "2026-11-14T08:00:00Z", "interval_s": 60, "values": [64, 63, 65, 66, null, 64] },
+    { "metric": "spo2", "start": "2026-11-14T08:00:00Z", "interval_s": 60, "values": [97, 98, 97, 97, null, 98] }
+  ],
+  "readings": [
+    { "metric": "sleep_hours", "time": "2026-11-14T06:15:00Z", "value": 7.2 },
+    { "metric": "mood", "time": "2026-11-13T21:00:00Z", "value": 4 },
+    { "metric": "body_mass", "time": "2026-11-10T07:30:00Z", "value": 71.8 },
+    { "metric": "glucose", "time": "2026-11-13T07:05:00Z", "value": 92 },
+    { "metric": "wbc", "time": "2026-11-03T08:00:00Z", "value": 5.6 }
+  ]
+}

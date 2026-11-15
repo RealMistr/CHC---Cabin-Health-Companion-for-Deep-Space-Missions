@@ -1,0 +1,58 @@
+{
+  "format": "chc/1",
+  "crew": {
+    "name": "Adrianos Golemis",
+    "role": "Mission specialist",
+    "mission_start": "2026-10-17",
+    "age": 39
+  },
+  "note": "Blood draw every 14 days (mission days 1, 15, 29), from the team's data, fitted to this astronaut. Not real medical data.",
+  "series": [],
+  "readings": [
+    {
+      "metric": "wbc",
+      "time": "2026-10-17T08:00:00.000Z",
+      "value": 10.6
+    },
+    {
+      "metric": "ferritin",
+      "time": "2026-10-17T08:01:00.000Z",
+      "value": 170.8
+    },
+    {
+      "metric": "sodium",
+      "time": "2026-10-17T08:02:00.000Z",
+      "value": 140
+    },
+    {
+      "metric": "wbc",
+      "time": "2026-10-31T08:00:00.000Z",
+      "value": 6.1
+    },
+    {
+      "metric": "ferritin",
+      "time": "2026-10-31T08:01:00.000Z",
+      "value": 87.5
+    },
+    {
+      "metric": "sodium",
+      "time": "2026-10-31T08:02:00.000Z",
+      "value": 144
+    },
+    {
+      "metric": "wbc",
+      "time": "2026-11-14T08:00:00.000Z",
+      "value": 10.7
+    },
+    {
+      "metric": "ferritin",
+      "time": "2026-11-14T08:01:00.000Z",
+      "value": 243.6
+    },
+    {
+      "metric": "sodium",
+      "time": "2026-11-14T08:02:00.000Z",
+      "value": 146
+    }
+  ]
+}

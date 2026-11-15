@@ -1,0 +1,58 @@
+{
+  "format": "chc/1",
+  "crew": {
+    "name": "Aleš Svoboda",
+    "role": "Pilot",
+    "mission_start": "2026-10-17",
+    "age": 40
+  },
+  "note": "Blood draw every 14 days (mission days 1, 15, 29), from the team's data. Not real medical data.",
+  "series": [],
+  "readings": [
+    {
+      "metric": "wbc",
+      "time": "2026-10-17T08:00:00.000Z",
+      "value": 12.7
+    },
+    {
+      "metric": "ferritin",
+      "time": "2026-10-17T08:01:00.000Z",
+      "value": 155.2
+    },
+    {
+      "metric": "sodium",
+      "time": "2026-10-17T08:02:00.000Z",
+      "value": 138
+    },
+    {
+      "metric": "wbc",
+      "time": "2026-10-31T08:00:00.000Z",
+      "value": 7.4
+    },
+    {
+      "metric": "ferritin",
+      "time": "2026-10-31T08:01:00.000Z",
+      "value": 78.7
+    },
+    {
+      "metric": "sodium",
+      "time": "2026-10-31T08:02:00.000Z",
+      "value": 141
+    },
+    {
+      "metric": "wbc",
+      "time": "2026-11-14T08:00:00.000Z",
+      "value": 12.8
+    },
+    {
+      "metric": "ferritin",
+      "time": "2026-11-14T08:01:00.000Z",
+      "value": 218.2
+    },
+    {
+      "metric": "sodium",
+      "time": "2026-11-14T08:02:00.000Z",
+      "value": 141
+    }
+  ]
+}
