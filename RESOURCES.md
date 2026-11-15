@@ -57,12 +57,12 @@ Housekeeping: `halo-vitals/halo-vitals/` is an older copy of the first version, 
 
 ## 4. Sources behind the numbers
 
-These are the real references the app's limits, texts and steps are based on. Anything not listed here is a general adult reference value or our own assumption (see section 6).
+These references document the published measurements, clinical reference ranges and background research used to design CHC. **A cited clinical reference range is not the same as an approved astronaut flight limit.** Several CHC Normal/Watch/Act now and emergency cut points are team-defined; see section 6. Numbers and references below describe the prototype, not a validated medical protocol.
 
 ### Radiation
 - **About 0.48 mGy a day absorbed (1.8 mSv a day dose equivalent) in cruise to Mars.** The app uses the gray value, about 20 µGy/h. Measured by the RAD instrument on Curiosity during its flight to Mars in 2011–2012.
   Zeitlin C. et al. (2013). *Measurements of Energetic Particle Radiation in Transit to Mars on the Mars Science Laboratory.* Science 340(6136): 1080–1084. doi:10.1126/science.1235989
-  Press release: https://www.swri.org/newsroom/press-releases/swri-led-team-calculates-the-radiation-exposure-associated-trip-mars
+  Press release: https://www.swri.org/press-release/swri-led-team-calculates-radiation-exposure-associated-trip-mars
   Summary: https://www.sciencedaily.com/releases/2013/05/130530145930.htm
 - **600 mSv career limit, shown in the app as about 157 mGy** (600 ÷ 3.82). NASA-STD-3001 Volume 1 [V1 4030]: an astronaut's total career effective dose from spaceflight must stay under 600 mSv, the same for all ages and sexes. Also: 250 mSv limit per solar particle event.
   NASA technical brief OCHMO-TB-020: https://www.nasa.gov/wp-content/uploads/2023/03/radiation-protection-technical-brief-ochmo.pdf
@@ -72,11 +72,29 @@ These are the real references the app's limits, texts and steps are based on. An
 - The channel list (heart rate and ECG, blood pressure, blood oxygen, breathing rate and volume, skin temperature, activity) follows the Canadian Space Agency's **Bio-Monitor / Astroskin** smart shirt used on the ISS since 2019.
   CSA: https://www.asc-csa.gc.ca/eng/sciences/astroskin.asp
   NASA analog evaluation (HERA): https://ntrs.nasa.gov/api/citations/20190000238/downloads/20190000238.pdf
+  CSA's Bio-Monitor project description: https://www.asc-csa.gc.ca/eng/sciences/bio-monitor.asp
+
+
+### Bio-Monitor reference ranges
+
+These are **CHC's displayed Normal bands**, compared with general references. Where a source uses a different clinical boundary, CHC's selection is explicitly identified as a prototype choice.
+
+| Indicator | Range used by CHC | Reference and qualification |
+|---|---|---|
+| Resting heart rate | 50–90 bpm | General adult resting range and exercise heart-rate background: https://www.aarp.org/health/healthy-living/what-is-a-healthy-heart-rate/ . The 50–90 band is CHC-defined for its sample crew. |
+| Heart rate during exercise | Up to 90% of estimated maximum | The **90% threshold is CHC-defined**; maximum estimated as `220 − age` (see Exercise below). |
+| Blood oxygen (SpO₂) | 95–100% | Clinical context: NEWS2, linked under Emergency limits; the app's warning bands are CHC-defined. |
+| Resting blood pressure | Systolic 90–129 mmHg; diastolic 55–84 mmHg | American Heart Association blood-pressure categories: https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings . These **CHC Normal bands do not exactly match AHA's normal category**. |
+| Exercise blood pressure | Systolic up to 200 mmHg | Exercise blood-pressure context: https://pmc.ncbi.nlm.nih.gov/articles/PMC10743421/ . The 200 mmHg cut point is **CHC-defined**, not an astronaut safety limit. |
+| Resting respiration / minute ventilation | 12–20 breaths/min; 5–10 L/min | Minute-ventilation background: https://www.respiratorytherapyzone.com/minute-ventilation-calculator/ . CHC's bands are approximate adult references. |
+| Activity counted as exercise | ≥3 METs | CDC definition of moderate-intensity physical activity: https://www.cdc.gov/physical-activity-basics/measuring/ |
+| Skin temperature | 32–35.5 °C | Related skin-temperature research: https://www.sciencedirect.com/science/article/abs/pii/S0378778825001550 . This is a **CHC-selected band**, not a verified Bio-Monitor shirt-specific reference interval. |
 
 ### Reaction test
 - Based on the **Psychomotor Vigilance Test (PVT)** and its 3-minute version **PVT-B**: lapses are responses slower than 500 ms; responses under 100 ms count as false starts.
   Basner M., Mollicone D., Dinges D.F. (2011). *Validity and Sensitivity of a Brief Psychomotor Vigilance Test (PVT-B) to Total and Partial Sleep Deprivation.* Acta Astronautica 69: 949–959. doi:10.1016/j.actaastro.2011.07.015
   Free full text: https://pmc.ncbi.nlm.nih.gov/articles/PMC3197786
+  Additional PVT/PVT-B background cited by the team: https://pmc.ncbi.nlm.nih.gov/articles/PMC3208580/
   Task description: https://www.psytoolkit.org/experiment-library/pvtb.html
 - The **Circles** mode is our own speed-and-aim game for the crew scoreboard (20 targets, 1.5 s each, missed target = 1.5 s, click beside = +0.1 s). It is not a validated test, so its results are not used for health status.
 
@@ -84,20 +102,53 @@ These are the real references the app's limits, texts and steps are based on. An
 - **About 2 hours of exercise a day** is the ISS routine (the 110-minute cut point in the app is our assumption).
   CSA: https://asc-csa.gc.ca/eng/astronauts/living-in-space/physical-activity-in-space.asp
   ESA: https://www.esa.int/kids/en/learn/Life_in_Space/Living_in_space/Exercise
+  ESA astronaut daily-life overview: https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/Astronauts/Daily_life
 - **Maximum heart rate = 220 minus age** for the exercise limits. A widely used rough estimate, not exact for individuals.
 
+
+### Daily and weekly checks
+
+| Check | CHC reference or threshold | Supporting reference / status |
+|---|---|---|
+| Sleep | 7–9 hours | Adult sleep-duration research: https://pmc.ncbi.nlm.nih.gov/articles/PMC4434546/ ; the app's Watch/Act now bands are CHC-defined. |
+| Oral body temperature | 36.1–37.4 °C | Normal-temperature background: https://pmc.ncbi.nlm.nih.gov/articles/PMC3418963/ ; CHC's exact band is a prototype reference range. |
+| Body mass change | Within ±3% of pre-flight | **CHC-defined** threshold. Spaceflight body-mass changes are discussed with Zwart et al. in Possible causes below. |
+| Reaction time | Up to 10% slower than individual baseline | **CHC-defined** change threshold; PVT-B literature is cited under Reaction test above. |
+| Near vision (decimal acuity) | 0.8 or better (approximately 20/25) | **CHC-defined** screening threshold; visual-acuity context: https://ntrs.nasa.gov/api/citations/20240004680/downloads/H3PO_EA2_AsMA2024_VisuaAcuity_Hew_v4.pdf |
+| Mood and crew connection | 3–5 on the app's 1–5 scales | **CHC-defined** scales and thresholds. NASA Human Research Program background on behavioral health and isolation: https://www.nasa.gov/hrp/human-factors-and-behavioral-performance/hfbp-risks/ |
+
 ### Kidney stone risk
-- **Urine volume at least 2.5 L a day**, and the 24-hour urine test contents (volume, pH, calcium, oxalate, citrate): American Urological Association guideline *Medical Management of Kidney Stones*. The 2014 version was replaced by a new one in July 2026; the 2.5 L target is still in it.
-  AUA guideline page: https://auanet.org/guidelines/guidelines/kidney-stones-medical-mangement-guideline
-  2026 update summary: https://www.guidelinecentral.com/insights/jul-2026-aua-managementkidneystones-guideline-spotlight/
-- **Citrate under 320 mg a day (low citrate)**, calcium and oxalate limits: common laboratory reference values. European guidelines use similar cut points (about 327 mg/day citrate for men).
-  Overview: https://open-exam-prep.com/study-guides/intl-febu-part1/urolithiasis-medical-management/metabolic-evaluation-stone-prevention
-- The app's 0–5 score is our simplification. Real ground teams calculate supersaturation in a lab.
+The 24-hour urine checks were selected to illustrate kidney-stone risk during spaceflight. The **2.5 L/day urine-volume target** is based on stone-prevention guidance; several other bands are CHC-defined simplifications.
+
+| Urine test | CHC Normal band | Reference and qualification |
+|---|---|---|
+| Volume, 24 h | 2.5–5 L/day | AUA medical management guidance: https://auanet.org/guidelines/guidelines/kidney-stones-medical-mangement-guideline ; 2026 update: https://www.guidelinecentral.com/insights/jul-2026-aua-managementkidneystones-guideline-spotlight/ ; University of Chicago explanation: https://kidneystones.uchicago.edu/2016/01/07/how-to-read-your-kidney-stone-lab-report/ . The upper boundary is CHC-defined. |
+| Calcium, 24 h | 100–250 mg/day | Laboratory reference: https://renal.testcatalog.org/show/CALU . The app uses a shared prototype band; interpretation can depend on patient sex and laboratory. |
+| Oxalate, 24 h | Up to 40 mg/day | Litholink example report: https://litholink.labcorp.com/sites/default/files/2023-06/Sample%20Report%20910235%20-%20FINAL.pdf |
+| Citrate, 24 h | ≥320 mg/day | Clinical cut-point background: https://mobile.fpnotebook.com/Uro/Renal/ClcmNphrlths.htm ; additional context: https://open-exam-prep.com/study-guides/intl-febu-part1/urolithiasis-medical-management/metabolic-evaluation-stone-prevention . |
+| pH (dipstick) | 5.5–7.0 | General urine-test reference: https://www.cigna.com/knowledge-center/hw/medical-tests/urine-test-hw6580 . CHC intentionally uses a **narrower, team-defined** target than the laboratory reference interval. |
+| Concentration (specific gravity) | 1.005–1.020 | General urine-test reference: https://medlineplus.gov/ency/article/003587.htm . The CHC upper target is **stricter than some general laboratory ranges**. |
+
+The 0–5 kidney-stone risk score is **CHC's own count of five risk factors**. It does not replace clinical urinary supersaturation calculations.
+
+
+### Blood test reference ranges
+
+These are the **CHC prototype reference bands**; clinical intervals can vary by laboratory, method, sex and sampling conditions. They are not official NASA medical limits.
+
+| Test | CHC Normal band | Clinical reference / qualification |
+|---|---|---|
+| White blood cells (WBC) | 4,000–11,000 cells/µL | UCSF example: https://www.ucsfhealth.org/care/medical-tests/wbc-count ; Cleveland Clinic: https://my.clevelandclinic.org/health/body/21871-white-blood-cells . Some laboratories use a lower boundary of 4,500 cells/µL. |
+| Sodium | 135–145 mmol/L | Serum sodium context: https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/sodium-blood-level |
+| Lactate (lactic acid in blood) | 0.5–2.2 mmol/L | MedlinePlus: https://medlineplus.gov/lab-tests/lactic-acid-test/ . **Not the same as lactate dehydrogenase (LDH)**. |
+
+The project's separate, team-selected **ferritin and haemoglobin bands**, and its fasting-glucose classification, are documented together in section 6 below, with laboratory references.
 
 ### Radiation: converting units and protection
 - **Quality factor 3.82**, used only to convert older sievert files and NASA's limit into gray. The average quality factor RAD measured during the cruise to Mars (3.05 on the Martian surface); absorbed dose rate in cruise was about 0.48 mGy a day.
   Hassler D.M. et al. (2014). *Mars' Surface Radiation Environment Measured with the Mars Science Laboratory's Curiosity Rover.* Science 343(6169). doi:10.1126/science.1244797 (compares surface and cruise values)
   Zeitlin C. et al. (2013), above.
+  Additional accessible Mars-surface radiation paper: https://scispace.com/pdf/mars-surface-radiation-environment-measured-with-the-mars-244eildtx0.pdf (surface context; **not** the source of the cruise data).
 - **Storm shelter during a solar particle event.** NASA's plan for Orion: the crew builds a dense shelter from stowage bags when the dose rate passes set levels, and stays until the event is over.
   NASA: https://science.nasa.gov/science-research/heliophysics/how-nasa-will-protect-astronauts-from-space-radiation-at-the-moon
   National Academies, *Managing Space Radiation Risk in the New Era of Space Exploration* (2008), storm shelter chapter: https://www.nap.edu/read/12045/chapter/6
@@ -109,6 +160,7 @@ These are the real references the app's limits, texts and steps are based on. An
 - **Blood glucose below 54 mg/dL = level 2 hypoglycaemia**, which needs treatment straight away; the **15-15 rule** (15 g fast carbohydrate, recheck after 15 minutes) for the low-sugar steps.
   American Diabetes Association, Standards of Care in Diabetes 2025: https://pmc.ncbi.nlm.nih.gov/articles/11635037
   ADA hypoglycaemia sheet: https://professional.diabetes.org/sites/dpro/files/2025-05/hypoglycemia-hcp-5-27-25.pdf
+  *Standards of Care 2025* issue: https://diabetesjournals.org/care/issue/48/Supplement_1
 - **Blood pressure 180/120 mmHg or more = hypertensive crisis.**
   American Heart Association (via Mayo Clinic): https://www.mayoclinic.org/diseases-conditions/high-blood-pressure/expert-answers/hypertensive-crisis/faq-20058491
   Merck Manual, Hypertensive emergencies: https://www.merckmanuals.com/professional/cardiovascular-disorders/hypertension/hypertensive-emergencies
@@ -117,6 +169,8 @@ These are the real references the app's limits, texts and steps are based on. An
 - Blood oxygen below 88%, haemoglobin below 8 g/dL, white blood cells below 2 or above 20 ×10⁹/L and lactate above 5 mmol/L as emergencies are our own choices, set beyond common "act now" values.
 
 ### Possible causes (background for `js/diagnose.js`)
+
+General spaceflight medical and physiological context: NASA [The Human Body in Space](https://www.nasa.gov/humans-in-space/the-human-body-in-space/) and the [Human Research Program](https://www.nasa.gov/hrp/). These overviews are background material; the specific modeled conditions and steps are supported by the references below and remain prototype choices.
 - **Radiation damage to the blood** (simulation "Radiation damage to the blood"). The bone marrow is the most radiation-sensitive organ: its threshold for damage is about 0.5 Gy, and lymphocytes (white blood cells) fall first, faster at higher doses. The bone marrow (haematopoietic) syndrome usually needs more than 0.7 Gy; mild symptoms can start at 0.3 Gy. The simulated 0.42 Gy (420 mGy) is in that range for a major solar particle event caught outside the shelter; the steps (infection protection, temperature checks, daily blood counts, shielding) follow the usual care for low white blood cells.
   López M., Martín M. (2011). *Medical management of the acute radiation syndrome.* Rep Pract Oncol Radiother 16(4): 138–146. https://pmc.ncbi.nlm.nih.gov/articles/PMC3863169
   CDC, *Acute Radiation Syndrome: Information for Clinicians*: https://www.cdc.gov/radiation-emergencies/hcp/clinical-guidance/ars.html
@@ -128,17 +182,19 @@ These are the real references the app's limits, texts and steps are based on. An
 - **Fluid shift toward the head and vision changes (SANS).** Near vision gets worse in many long-duration astronauts; the main suspected cause is fluid shifting toward the head.
   Lee A.G. et al. (2020). *Spaceflight associated neuro-ocular syndrome (SANS) and the neuro-ophthalmologic effects of microgravity.* npj Microgravity. https://pmc.ncbi.nlm.nih.gov/articles/PMC7005826
   EyeWiki: https://eyewiki.aao.org/Spaceflight-Associated_Neuro-Ocular_Syndrome_(SANS)
+  NASA overview of SANS: https://www.nasa.gov/reference/risk-of-spaceflight-associated-neuro-ocular-syndrome-sans/
 - **Kidney stones in space.** Higher urine calcium from bone loss and lower urine volume are the main risk factors.
   NASA Human Research Program, *Evidence Report: Risk of Renal Stone Formation* (2017): https://ntrs.nasa.gov/api/citations/20170004709/downloads/20170004709.pdf
   NASA, renal stone risk and potassium citrate countermeasure: https://ntrs.nasa.gov/citations/20070008213
 - **Body mass loss.** ISS crews lost on average 2.8–4.4% body mass, mostly in the first 30 days, eating about 80% of what they need.
-  Zwart S.R. et al. (2014). *Body mass changes during long-duration spaceflight.* Aviat Space Environ Med 85(9): 897–904. https://www.ncbi.nlm.nih.gov/pubmed/25197887
+  Zwart S.R. et al. (2014). *Body mass changes during long-duration spaceflight.* Aviat Space Environ Med 85(9): 897–904. https://pubmed.ncbi.nlm.nih.gov/25197887/
 
 ### How it is measured (texts in each detail panel)
 - **Blood pressure cuff:** on bare skin, bottom edge just above the bend of the elbow (about 1 inch), arm supported, keep still.
-  American Heart Association: https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home
+  American Heart Association, how to measure at home: https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home
 - **Finger pulse oximeter:** warm, relaxed hand, no nail polish, keep still until the value settles.
   FDA advice (MedlinePlus Magazine): https://magazine.medlineplus.gov/article/getting-an-accurate-read-on-pulse-oximeters
+  MedlinePlus pulse-oximetry overview: https://medlineplus.gov/lab-tests/pulse-oximetry/
 - **Body mass without gravity:** NASA's Space Linear Acceleration Mass Measurement Device (SLAMMD) uses springs and F = ma.
   NASA: https://www.nasa.gov/?p=668373 · Space.com: https://www.space.com/space-exploration/human-spaceflight/how-do-astronauts-weigh-themselves-in-space
 
@@ -169,8 +225,8 @@ These are the real references the app's limits, texts and steps are based on. An
 Said plainly, so nobody is surprised during judging:
 
 - Heart rate, blood pressure, blood oxygen, breathing, temperatures, glucose, lactate, blood counts, sodium and urine dipstick ranges are **general adult reference values, not NASA flight limits**.
-- **Fasting blood glucose** follows the American Diabetes Association fasting values: normal 70–100 mg/dL, Watch up to 125 (prediabetes range), Act now above 125. Source: https://diabetes.org/about-diabetes/diagnosis
-- The normal ranges for **ferritin (22–355 µg/L)** and **haemoglobin (13–18 g/dL)** were set by the team. Watch bands around them: ferritin 10–500, haemoglobin 12–19; outside those is Act now.
+- **Fasting blood glucose** follows the American Diabetes Association fasting values: normal 70–100 mg/dL, Watch up to 125 (prediabetes range), Act now above 125. Sources: https://diabetes.org/about-diabetes/diagnosis · https://my.clevelandclinic.org/health/diagnostics/21952-fasting-blood-sugar
+- The normal ranges for **ferritin (22–355 µg/L)** and **haemoglobin (13–18 g/dL)** were set by the team. Watch bands around them: ferritin 10–500, haemoglobin 12–19; outside those is Act now. Supporting laboratory context (not exact validation of CHC's bands): ferritin https://www.sundhed.dk/sundhedsfaglig/laegehaandbogen/undersoegelser-og-proever/klinisk-biokemi/blodproever/ferritin/ · haemoglobin https://www.ncbi.nlm.nih.gov/books/NBK604207/
 - Cut points for mood, crew connection, body mass change, reaction time change, vision, and radiation above the 0.48 mGy/day background are **our own assumptions**.
 - The emergency limits follow the clinical references above, but **when exactly to call it an emergency on a spacecraft is our choice**. The possible causes and steps are a prototype written for the hackathon from the references above, not a medical protocol; the Crew Medical Officer decides on treatment.
 - The app shows absorbed dose (gray). NASA's limits are written in sievert, so the 157 mGy limit is a conversion with the deep-space average quality factor 3.82, not an official NASA number.
