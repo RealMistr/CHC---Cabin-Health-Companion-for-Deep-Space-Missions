@@ -270,4 +270,17 @@ DATA.md · RESOURCES.md   data format · every source and assumption
 
 - Ranges are general adult reference values (ferritin and haemoglobin set by the team), not NASA flight limits. Sources: [RESOURCES.md](RESOURCES.md).
 - The crew members are real; their health numbers are not. The radiation is real Curiosity data from 2011–2012, moved in time.
-- A hackathon prototype, not a medical device: the Crew Medical Officer makes the call.
+- A hackathon prototype, not a medical device.
+
+## Credits & Attributions
+
+**Logo**
+The CHC project logo is adapted from the original Czech Space logo. The design has been modified for use in this project. All rights to the original logo belong to their respective owners.
+
+**Simulated Crew**
+The CHC application features a fictional mission crew represented by real space professionals:
+Aleš Svoboda – Pilot
+Thomas Pesquet – Commander
+Adrianos Golemis – Mission Specialist
+
+Their names are used exclusively for simulation and demonstration purposes. The individuals are not involved in the development of this project.
