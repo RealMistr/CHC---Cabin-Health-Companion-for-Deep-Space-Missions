@@ -13,8 +13,9 @@
  *   1. Chrome's built-in on-device model (Prompt API, Gemini Nano) - no install on supported PCs
  *   2. Ollama on this computer (http://127.0.0.1:11434), called directly from the page
  *   3. Offline assistant written in JavaScript - always works
- * A model's answer is checked here: unknown causes and suggestions are dropped, numbers that are not in the data
- * get a warning, and an answer that ignores a flagged item is rejected (the offline assistant is used instead). */
+ * A model's answer is checked here: unknown causes and suggestions are dropped, unsupported numbers
+ * reject the response, and an answer that ignores a flagged item falls back to the offline assistant.
+ * Technical validation messages are logged for developers, never shown to the crew. */
 (function (g) {
   var H = g.Halo, A = H.ai = {}, F = H.fmt, esc = F.esc, X = H.diagnose;
   var AI = Object.assign({ ollamaUrl: "http://127.0.0.1:11434", ollamaModel: "llama3.2:3b", chromeAI: true, ollama: true }, (g.HALO_CONFIG || {}).ai || {});
@@ -72,7 +73,8 @@
       "Write in English. Mention every item with status Act now or Watch by name (items with 'covered_by' are part of that item and need not be named separately). " +
       TONE[dx.tier] + " " +
       "For 'causes', write one sentence per cause explaining which of the measured values point to it. Use only ids from 'possible_causes', at most 3; you may change their order if the data fits another one better. Never invent a cause, a treatment, a step or a number: only use numbers that appear in the data. " +
-      "If anything is Watch or Act now, pick up to 3 tests from 'allowed'. If everything is Normal, pick none. " +
+      "For 'recommend', choose at most 3 tests from 'allowed' and copy ONLY their exact 'key' strings; never put action steps or ordinary sentences in 'key'. " +
+      "For emergencies, all-normal results, or an empty 'allowed' list, return recommend: []. " +
       'Answer with JSON only: {"summary": "...", "causes": [{"id": "...", "why": "..."}], "recommend": [{"key": "..."}]}';
     var user = JSON.stringify({
       mission_day: p.mission && p.mission.day,
@@ -149,8 +151,9 @@
     if (dx.tier === "emergency" && !/^emergency/i.test(summary)) summary = "Emergency. " + summary; /* the alarm word is not left to the model */
     var allowed = {}; p.allowed.forEach(function (a) { allowed[a.key] = a; });
     var flaggedAny = p.metrics.some(function (x) { return x.status === "Watch" || x.status === "Act now"; });
-    var rec = [], seen = {}, warnings = [];
-    (Array.isArray(obj.recommend) ? obj.recommend : []).forEach(function (it) {
+    var rec = [], seen = {}, warnings = [], numberIssues = [];
+    /* In emergencies the crew needs approved action steps, not optional tests. */
+    (dx.tier === "emergency" ? [] : (Array.isArray(obj.recommend) ? obj.recommend : [])).forEach(function (it) {
       var key = typeof it === "string" ? it : it && it.key;
       if (typeof key !== "string") return;
       key = key.trim();
@@ -158,6 +161,10 @@
       if (seen[key] || !flaggedAny || rec.length >= 3) return;
       seen[key] = 1; rec.push({ key: key });
     });
+    /* When the model gives prose instead of keys, retain only code-approved tests. */
+    if (dx.tier !== "emergency" && flaggedAny && !rec.length) {
+      p.allowed.slice(0, 3).forEach(function (a) { rec.push({ key: a.key }); });
+    }
     /* causes: only the ones the app found; the model may explain and re-order them */
     var known = numbersIn(p), byId = {}, causes = [], cseen = {};
     dx.causes.forEach(function (c) { byId[c.id] = c; });
@@ -167,12 +174,17 @@
       if (cseen[id] || causes.length >= 3) return;
       cseen[id] = 1;
       var why = typeof it.why === "string" ? sentences(it.why, 2).slice(0, 260) : "";
-      warnings = warnings.concat(numberWarnings(why, known));
+      numberIssues = numberIssues.concat(numberWarnings(why, known));
       causes.push({ id: id, why: why });
     });
     dx.causes.forEach(function (c) { if (!cseen[c.id] && causes.length < 3) causes.push({ id: c.id, why: "" }); });
-    warnings = warnings.concat(numberWarnings(summary, known));
-    return { summary: summary, causes: causes, recommend: rec, warnings: warnings };
+    numberIssues = numberIssues.concat(numberWarnings(summary, known));
+    /* Do not show text containing unverified numerical claims to the crew. */
+    if (numberIssues.length) throw new Error("AI used a number outside the supplied data");
+    if (warnings.length && g.console && g.console.warn) {
+      g.console.warn("[CHC AI] Filtered unsupported AI items:", warnings);
+    }
+    return { summary: summary, causes: causes, recommend: rec, warnings: [] };
   }
 
   /* ---------------- offline assistant: a written assessment without any model ---------------- */
@@ -266,6 +278,7 @@
           : Promise.resolve(rules(p, dx));
         return job.then(function (res) { return Object.assign(res, { provider: name, notes: notes }); }, function (e) {
           notes.push((name === "chrome" ? "Chrome AI" : "Ollama") + ": " + (e && e.message || e));
+          if (g.console && g.console.warn) g.console.warn("[CHC AI] Provider rejected; trying fallback:", name, e);
           return attempt(i + 1);
         });
       }
@@ -357,8 +370,7 @@
     else if (r) {
       main += '<p class="ai-text' + (busy ? " busy" : "") + '">' + esc(r.summary) + "</p>" + causesHtml(dx, r);
       side += stepsHtml(dx) + testsHtml(r, p);
-      if (r.notes && r.notes.length) main += '<p class="ai-note">' + esc(T.rejected + r.notes.join("; ")) + "</p>";
-      if (r.warnings && r.warnings.length) main += '<ul class="ai-warn">' + r.warnings.map(function (w) { return "<li>" + esc(w) + "</li>"; }).join("") + "</ul>";
+      /* Provider/validation diagnostics belong in the developer console, not in the astronaut's health card. */
     }
     if (busy) main += '<p class="ai-busy" role="status">' + T.writing + "</p>";
     if (caps && caps.chrome === "downloadable" && !dl) side += '<button type="button" class="btn small" data-ai-enable>' + T.enable + "</button>";
