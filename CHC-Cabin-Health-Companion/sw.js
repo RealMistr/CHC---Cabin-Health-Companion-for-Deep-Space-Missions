@@ -1,7 +1,7 @@
 /* Offline support when the app is opened from a web address (the Python server or a hosted copy).
  * Keeps a copy of the app files so it opens without a connection. Opening index.html directly from a
  * folder is already offline and does not use this file. Bump VERSION when files change. */
-var VERSION = "chc-v9";
+var VERSION = "chc-v10";
 var FILES = [
   "./", "index.html", "css/style.css", "img/logo.png", "img/chc-logo.svg", "img/icon-32.png", "img/icon-180.png", "img/icon-192.png", "img/icon-512.png", "manifest.webmanifest",
   "js/config.js", "js/data.js", "js/derived.js", "js/status.js", "js/curiosity-rad.js", "js/sample.js", "js/charts.js",
