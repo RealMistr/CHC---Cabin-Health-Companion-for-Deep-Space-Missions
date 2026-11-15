@@ -1,8 +1,6 @@
-<img src="img/logo.png" width="90" alt="CHC logo">
-
 # CHC · Cabin Health Companion
 
-A health companion for astronauts on a 30-day transit to Mars. It puts everything about one crew member's health on one screen:
+A health companion for astronauts on a deep space mission. It puts everything about one crew member's health on one screen:
 
 - **Continuous data** from a Bio-Monitor shirt (heart rate and ECG, blood oxygen, blood pressure, breathing, skin temperature, activity) and the cabin radiation monitor.
 - **Scheduled checks**: daily check-ins, a finger-prick test every 3 days, a blood draw every 2 weeks, urine tests.
